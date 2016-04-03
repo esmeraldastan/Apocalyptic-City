@@ -43,6 +43,7 @@ Secutary = Building("Secutary Desk",' You are standing next to your securary\'s 
 
 node = Office
 
+#RUN THROUGH THE MAP 
 while True:
     print node
     print "Room: " + node.name
@@ -55,14 +56,29 @@ while True:
     
     response = ['up', 'down', 'north', 'east', 'south', 'west', 'right', 'left', 'outside', 'inside'] 
     pick = ['pick up']
+    
+    #INVENTORY FOR ITEMS/WEAPONS
+    inventory = []
+    def addToInventory(item):
+        inventory.append(item)   
+    
     command = raw_input('>').strip().lower()
+    
+    
+    if command == "yes":
+        addToInventory("")
+    else:
+        print ("")
+    print (inventory)
     #QUITE THE PROGRAM 
     if command in ['q', 'exit', 'quit']:
         sys.exit(0)
+        
     #paper read out 
     if command in pick:
         print '*Escape to the labatory hidden under the an old facotry building.It should be\nlocated a couple of blockswest of where you are located.*'
         print 'Head north or east'
+        
     #MOVE INTO DIFFERNT ROOMS 
     if command in response:
         try:
