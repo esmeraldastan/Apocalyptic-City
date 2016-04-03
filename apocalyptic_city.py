@@ -1,9 +1,12 @@
+# -*- coding: utf-8 -*-
 import sys
 import random
+import time 
 
 #Into to the game 
+time.sleep(0.5)
 print "Welcome to Apocalyptic City\n"
-print "Your obective in this game will be to get out of\nthe building to saftey outside the city.\n"  
+print "Your obective in this game will be to get out of\nthe building to saftey.\n"  
 
 node = None 
 
@@ -27,11 +30,48 @@ class Building:#start of the map
         global node 
         node = globals()[getattr(self, direction)]
         
-print 'You have woken up form a long sleep. The last thing you remember was escaping the white gass that was spreading throughout the city.' 
+print 'You have woken up from a long sleep. The last thing you remember was escaping\nthe white gas that was spreading throughout the city.' 
+                   
+#BUILDING
 
+#THIRD FLOOR            
+Office = Building("Office", 'Papers have been shattered everywhere. The lights a\nflashing on and off. There next to you is a light blue paper. Type "pick up" to read what it says.', None, None, 'Conference', 'Secutary', None, None, None, None, None, None)
+Conference = Building("Conference Room", 'You are now standing in the Conference Room. A couple of bodies are laying around. Rottening with a nasty smell. There\'s a flashlight on the table. Pick it up...you might need it later on.', None, None, None, 'Elevator', 'Office',None, None, None, None, None)
+Elevator = Building("Elevator", 'In the Elevator head down to continue getting to your destination. Type "down".But wait before that you you need to restore to full health.There is a green cyrum laying on the grown. Type "restore" this will get you to full health. ', None, 'Elevator2', None, None, 'Secutary Desk',None, None, None, None, None)
+Stairs = Building("Stairs", 'The walls are coverd with blood. You are not alone. Zombies and infecteds run the area now. You don\'t want to encounter with one ...it can be your end.To go down the stairs type down to go on to the next floor.There is blood covering the walls….Bodies laying down with body parts missing. Be careful.  ', None, 'Stairs1', None, None, None,None, None, None, None, None)
+Secutary = Building("Secutary Desk",' You are standing next to your securary\'s desk. A flash light stands on top. Pick it up you might need it later on. Head "north" to the elevator or "east" to the stairs.', None, None, 'Elevator', None, None , None, None, None, None, None)
+
+node = Office
+
+while True:
+    print node
+    print "Room: " + node.name
+    print 
+    print "Description: " + node.description 
+    
+    #WORD DEFINE
+    infected = "A person who had been contaminated by the gas"
+    zombie = 'A dead person risen from the dead.The chemicals within the gass had an effect on the dead makeing them come back to life'
+    
+    response = ['up', 'down', 'north', 'east', 'south', 'west', 'right', 'left', 'outside', 'inside'] 
+    pick = ['pick up']
+    command = raw_input('>').strip().lower()
+    #QUITE THE PROGRAM 
+    if command in ['q', 'exit', 'quit']:
+        sys.exit(0)
+    #paper read out 
+    if command in pick:
+        print '*Escape to the labatory hidden under the an old facotry building.It should be\nlocated a couple of blockswest of where you are located.*'
+        print 'Head north or east'
+    #MOVE INTO DIFFERNT ROOMS 
+    if command in response:
+        try:
+           node.move(command)
+        except:
+           print 'You can\'t do that way! '  
 
         
-# door 
+'''# door 
 
 print "Figure out the password in order to open the door."
 
@@ -70,6 +110,6 @@ while turns > 0:
        if turns == 0:
             print "Sorry you lose"#change
        
-
+'''
 
         
