@@ -11,6 +11,10 @@ print "Your obective in this game will be to get out of\nthe building to saftey.
 
 node = None 
 
+#INVENTORY
+def addToInventory(item):
+    inventory.append(item)
+    global invenotory
 class Building:#start of the map 
 
     def __init__(self, name, description, up, down, north, east, south, west, right, left, outside, inside):
@@ -37,16 +41,17 @@ print 'You have woken up from a long sleep. The last thing you remember was esca
 
 #THIRD FLOOR            
 Office = Building("Office", 'Papers are shattered everywhere. The lights are\nflashing on and off. There next to you is a light blue paper. Type "pick up" to read what it says.', None, None, 'Conference', 'Secutary', None, None, None, None, None, None)
-Conference = Building("Conference Room", 'You are now standing in the Conference Room. A couple of bodies are laying around. Rottening with a nasty smell. There\'s a flashlight on the table. Pick it up...you might need it later on.', None, None, None, 'Elevator', 'Office',None, None, None, None, None)
+Conference = Building("Conference Room", 'You are now standing in the Conference Room. A couple of bodies are laying around. Rottening with a nasty smell. There\'s a flashlight on the table. Pick it up...you might need it later on.\n>yes\n>no\n\nHead "east"', None, None, None, 'Elevator', 'Office',None, None, None, None, None)
 Elevator = Building("Elevator", 'In the Elevator head down to continue getting to your destination. Type "down".But wait before that you you need to restore to full health.There is a green cyrum laying on the grown. Type "restore" this will get you to full health. ', None, 'Elevator2', None, None, 'Secutary Desk',None, None, None, None, None)
 Stairs = Building("Stairs", 'The walls are coverd with blood. You are not alone. Zombies and infecteds run the area now. You don\'t want to encounter with one ...it can be your end.To go down the stairs type down to go on to the next floor.There is blood covering the walls….Bodies laying down with body parts missing. Be careful.  ', None, 'Stairs1', None, None, None,None, None, None, None, None)
 Secutary = Building("Secutary Desk",' You are standing next to your securary\'s desk. A flash light stands on top. Pick it up you might need it later on. Head "north" to the elevator or "east" to the stairs.', None, None, 'Elevator', None, None , None, None, None, None, None)
 
 node = Office
 
+
+    
 #RUN THROUGH THE MAP 
 while True:
-    print node
     print "Room: " + node.name
     print 
     print "Description: " + node.description 
@@ -62,13 +67,16 @@ while True:
     
     command = raw_input('>').strip().lower()
 
+ 
+
+    
     #QUITE THE PROGRAM 
     if command in ['q', 'exit', 'quit']:
         sys.exit(0)
         
     #paper read out 
     if command in pick:
-        print '*Escape to the labatory hidden under the an old facotry building.It should be\nlocated a couple of blockswest of where you are located.*'
+        print '*Escape to the labatory hidden under the an old facotry building.It should be located a couple\nof blockswest of where you are located.*'
         print 'Head "north" or "east"'
         
     #MOVE INTO DIFFERNT ROOMS 
@@ -79,16 +87,15 @@ while True:
            print 'You can\'t do that way! '  
 
         #INVENTORY FOR ITEMS/WEAPONS
-   
-    def addToInventory(item):
-        inventory.append(item)   
         
-        
+       
     if command == "yes":
         addToInventory("flash light")
-    else:
-        print ("Okay, you can leave it there")
-    print (inventory)
+        print (inventory)
+    print
+    
+   
+
 '''# door 
 
 print "Figure out the password in order to open the door."
