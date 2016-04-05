@@ -15,6 +15,38 @@ node = None
 def addToInventory(item):
     inventory.append(item)
     global invenotory
+
+    
+#player status 
+class player(object):
+    
+    def __init__(self, name, health):
+        self.name = name 
+        self.health = health 
+        
+class single_player(player):
+    def __init__(self, name, health = 50000):
+        super(single_player, self).__init__(name, health = 50000)
+#ITEMS     
+class Item(object):
+    def __init__(self, name):
+        self.name = name
+        
+#CONSUMABLES   
+
+#SUBCLASS
+class Consumable(Item):
+    
+    def __init__(self, name, health):
+        super(Consumable, self).__init__(name)
+        self.health = health
+        
+class health_potion(Consumable):
+    def __init__(self, name, health = 200):
+        super(health_potion, self).__init__(name, health = 200)
+        
+health = health_potion(Consumable)    
+    
 class Building:#start of the map 
 
     def __init__(self, name, description, up, down, north, east, south, west, right, left, outside, inside):
@@ -77,6 +109,7 @@ while True:
     #paper read out 
     if command in pick:
         print '*Escape to the labatory hidden under the an old facotry building.It should be located a couple\nof blockswest of where you are located.*'
+        print 
         print 'Head "north" or "east"'
         
     #MOVE INTO DIFFERNT ROOMS 
