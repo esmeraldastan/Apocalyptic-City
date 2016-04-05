@@ -25,8 +25,11 @@ class player(object):
         self.health = health 
         
 class single_player(player):
-    def __init__(self, name, health = 50000):
-        super(single_player, self).__init__(name, health = 50000)
+    def __init__(self, name, health = 49800):
+        super(single_player, self).__init__(name, health = 49800)
+        
+me = single_player(player)        
+        
 #ITEMS     
 class Item(object):
     def __init__(self, name):
@@ -91,7 +94,7 @@ while True:
     #WORD DEFINE
     infected = "A person who had been contaminated by the gas"
     zombie = 'A dead person risen from the dead.The chemicals within the gass had an effect on the dead makeing them come back to life'
-    
+    restore = ['restore']
     response = ['up', 'down', 'north', 'east', 'south', 'west', 'right', 'left', 'outside', 'inside'] 
     pick = ['pick up']
     
@@ -118,6 +121,11 @@ while True:
            node.move(command)
         except:
            print 'You can\'t do that way! '  
+           
+           
+    if command in restore:
+        status = me + health
+    print  
 
         #INVENTORY FOR ITEMS/WEAPONS
         
