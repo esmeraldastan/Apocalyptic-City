@@ -2,7 +2,7 @@
 import sys
 import random
 import time 
-
+c
 inventory = []
 #Into to the game 
 time.sleep(0.5)
