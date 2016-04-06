@@ -8,7 +8,7 @@ inventory = []
 #Into to the game 
 time.sleep(0.5)
 print "Welcome to Apocalyptic City\n"
-print "Your obective in this game will be to get out of\nthe building to saftey.\n"  
+print "Your objective in this game will be to get out of\nthe building to saftey.\n"  
 
 node = None 
 
@@ -84,7 +84,7 @@ Secutary = Building("Secutary Desk",' You are standing next to your securary\'s 
 
 #PATH TO SECOND FLOOR
 Stairs1 = Building("Stairs", 'Pieces from the ceiling fell blocking your path. Find another path to reach out into saftey', None, None, None, None, None,None, None, None, None, None)
-Elevator2 = Building("Elevator", 'You are now on the second floor', None, 'Elevator2', None, None, None,None, None, None, None, None)
+Elevator2 = Building("Elevator", 'You are now on the second floor.' time.sleep(0.8)'heyyo', None, 'Elevator2', None, None, None,None, None, None, None, None)
 
 node = Office
 
