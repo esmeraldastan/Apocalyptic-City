@@ -2,8 +2,9 @@
 import sys
 import random
 import time 
-c
+
 inventory = []
+
 #Into to the game 
 time.sleep(0.5)
 print "Welcome to Apocalyptic City\n"
@@ -35,9 +36,8 @@ class Item(object):
     def __init__(self, name):
         self.name = name
         
+        
 #CONSUMABLES   
-
-#SUBCLASS
 class Consumable(Item):
     
     def __init__(self, name, health):
@@ -48,7 +48,8 @@ class health_potion(Consumable):
     def __init__(self, name, health = 200):
         super(health_potion, self).__init__(name, health = 200)
         
-health = health_potion(Consumable)    
+a = health_potion(Consumable)  
+b = single_player(Consumable)  
     
 class Building:#start of the map 
 
@@ -79,7 +80,11 @@ Office = Building("Office", 'Papers are shattered everywhere. The lights are\nfl
 Conference = Building("Conference Room", 'You are now standing in the Conference Room. A couple of bodies are laying around. Rottening with a nasty smell. There\'s a flashlight on the table. Pick it up...you might need it later on.\n>yes\n>no\n\nHead "east"', None, None, None, 'Elevator', 'Office',None, None, None, None, None)
 Elevator = Building("Elevator", 'In the Elevator head down to continue getting to your destination. Type "down".But wait before that you you need to restore to full health.There is a green cyrum laying on the grown. Type "restore" this will get you to full health. ', None, 'Elevator2', None, None, 'Secutary Desk',None, None, None, None, None)
 Stairs = Building("Stairs", 'The walls are coverd with blood. You are not alone. Zombies and infecteds run the area now. You don\'t want to encounter with one ...it can be your end.To go down the stairs type down to go on to the next floor.There is blood covering the walls….Bodies laying down with body parts missing. Be careful.  ', None, 'Stairs1', None, None, None,None, None, None, None, None)
-Secutary = Building("Secutary Desk",' You are standing next to your securary\'s desk. A flash light stands on top. Pick it up you might need it later on. Head "north" to the elevator or "east" to the stairs.', None, None, 'Elevator', None, None , None, None, None, None, None)
+Secutary = Building("Secutary Desk",' You are standing next to your securary\'s desk. A flash light stands on top. Pick it up you might need it later on. Head "north" to the elevator or "east" to the stairs.', None, None, 'Elevator', 'Stairs', None , None, None, None, None, None)
+
+#PATH TO SECOND FLOOR
+Stairs1 = Building("Stairs", 'Pieces from the ceiling fell blocking your path. Find another path to reach out into saftey', None, None, None, None, None,None, None, None, None, None)
+Elevator2 = Building("Elevator", 'You are now on the second floor', None, 'Elevator2', None, None, None,None, None, None, None, None)
 
 node = Office
 
@@ -122,10 +127,10 @@ while True:
         except:
            print 'You can\'t do that way! '  
            
-           
-    if command in restore:
-        status = me + health
-    print  
+    #RESTORE HEALTH       
+    if command == 'restore':
+        new_health = a.health + b.health
+        print new_health,'full health restored'
 
         #INVENTORY FOR ITEMS/WEAPONS
         
