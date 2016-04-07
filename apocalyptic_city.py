@@ -84,11 +84,11 @@ Secutary = Building("Secutary Desk",' You are standing next to your securary\'s 
 
 #PATH TO SECOND FLOOR
 Stairs1 = Building("Stairs", 'Pieces from the ceiling fell blocking your path. Find another path to reach out into saftey', None, None, None, None, None,None, None, None, None, None)
-Elevator2 = Building("Elevator", 'You are now on the second floor. You here a loud growl coming for the stairs.... the infected is charging twords you\nHead "south"',None, 'Elevator2', None, None, None, 'Office1', None, None, None, None)
+Elevator2 = Building("Elevator", 'You are now on the second floor. You here a loud growl coming for the stairs.... the infected is charging twords you\nHead "south"', 'Elevator', None, None, None, 'Office1', None , None, None, None, None)
 
 #SECOND FLOOR
-Office1 = Building('Office 1', 'There seems nothing to be in here help you defeat the infected.\nHead "west" into the other office. There might be something in there', None, None, 'Elevator', 'Office2', 'Janitor',None, None, None, None, None)
-Office2 = Building('Office 2 ', 'Inorder to open the door you need to figure out the code', None, None, 'Weapon', 'Janitor', None,None, None, None, None, None)
+Office1 = Building('Office 1', 'There seems nothing to be in here help you defeat the infected.\nHead "west" into the other office. There might be something in there', None, None, 'Elevator2', 'Stairs3', 'Office 2',None, None, None, None, None)
+Office2 = Building('Office 2 ', 'Huh, nothing in here as well. The infecteds are coming in closer. Keep heading "east"', None, None, None, 'Janitor', None, 'Office', None, None, None, None)
 Secret = Building('Secret Door', 'Inorder to open the door you need to figure out the code', None, None, 'Weapon', 'Janitor', None,None, None, None, None, None)
 Weapon = Building('Weapon Room', 'A variaty of weapons are displayed. The the ones that you think will be useful. Remember thought there is a limit to what you can take', None, None, None, None, 'Secret',None, None, None, None, None)
 node = Office
@@ -147,45 +147,44 @@ while True:
     
    
 
-'''# door 
+# door 
+    if node == 'Secret Door' :
+        print "Figure out the password in order to open the door."
 
-print "Figure out the password in order to open the door."
-
-password = "3546", "5515", "1651", "4539" #passwords to open up the doors 
-wordIndex = random.randint(0,len(password)-1)
-code_rip = password[wordIndex]
-user_guesses = ''
-turns = 10 #the player will have only 10 times to try to figure out the code
+        password = "3546", "5515", "1651", "4539" #passwords to open up the doors 
+        wordIndex = random.randint(0,len(password)-1)
+        code_rip = password[wordIndex]
+        user_guesses = ''
+        turns = 10 #the player will have only 10 times to try to figure out the code
 
 
-while turns > 0:
-       left = 0
-       for number in code_rip:
-         if number in user_guesses:
-            print number,
-         else:
-            print "#",
-            left += 1
-       if left == 0:
-            print
-            print
-            print "Excellent, move on."# move into the next room 
-                
-            break
+        while turns > 0:
+            left = 0
+            for number in code_rip:
+                if number in user_guesses:
+                    print number,
+                else:
+                    print "#",
+                    left += 1
+            if left == 0:
+                    print
+                    print
+                    print "Excellent, move on."# move into the next room 
+                    
+                    break
+            
+            print 
+            
+            guess = raw_input("Guess the four Numbers:")
+            if guess in ['q','quit','exit']:
+                    sys.exit(0)
+            user_guesses += guess 
+            if guess not in code_rip:
+                    turns -=1
+                    print "Sorry number not in the secret code. \n\n Please try again"
+                    print "You have", +turns, 'left'
+            if turns == 0:
+                    print "Sorry you lose"#change
         
-       print 
-        
-       guess = raw_input("Guess the four Numbers:")
-       if guess in ['q','quit','exit']:
-            sys.exit(0)
-       user_guesses += guess 
-       if guess not in code_rip:
-            turns -=1
-            print "Sorry number not in the secret code. \n\n Please try again"
-            print "You have", +turns, 'left'
-       if turns == 0:
-            print "Sorry you lose"#change
-       
-'''
 
         
