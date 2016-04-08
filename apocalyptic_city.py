@@ -16,11 +16,12 @@ node = None
 
 #INVENTORY
 def addToInventory(item):
+    item = raw_input('what do you want to add??')
     inventory.append(item)
-    global invenotory
+    global inventory
 
     
-#player status 
+#player status yes
 class player(object):
     
     def __init__(self, name, health):
@@ -144,10 +145,16 @@ while True:
         
        
     if command == "yes":
-        addToInventory("flash light")
+        print "what would you like to add"
+        addToInventory(input)
         print (inventory)
     print
     
+    '''if command == "sure":
+        addToInventory("health potion")
+        print (inventory)
+    print '''
+        
    
 
 # door 
