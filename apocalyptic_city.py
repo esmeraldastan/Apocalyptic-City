@@ -95,6 +95,13 @@ Office2 = Building('Office 2 ', 'Huh, nothing in here as well. The infecteds are
 Janitor= Building('Janitor Room', 'Cleaning applicances are scattered everywhere. Within the room ther is another door.\nWEAPONS\n it reads. go inside Figure out the passcode to get in.', None, None, None, 'Office1', 'Secret',None, None, None, None, 'Secret')
 Secret = Building('Secret Door', 'Inorder to open the door you need to figure out the code', None, None, 'Weapon', 'Janitor', None,None, None, None, None, None)
 Weapon = Building('Weapon Room', 'A variaty of weapons are displayed. The the ones that you think will be useful. Remember thought there is a limit to what you can take', None, None, None, None, 'Secret',None, None, None, None, None)
+Bathroom = Building('Restroom', 'The smell of rottening meat is rising in here. Place the first bomb in here. ', None, None, None, None, 'Stairs','Elevator', None, None, None, None)
+
+#OUTSIDE
+Enterence=('Enterence', 'BOOM!!!Peices of glass shattering everywhere. Bodies flying in the sky. Luckly you have made it out saftly. It won\'t be easy now to make it you your destination with infecteds and zombies around.', None, None, None, None, None,None, None, None, None, None)
+coffee = ('Coffee Shop', 'You are now standing inforn of a coffee shop. If you are low on health head inside to restore it. If not confinue..\nHead "west"', None, None, None, None, None,None, None, None, None, None)
+bank =('Bank', 'You are passing by a bank. There are items inside. Across the is the a Gift Shop. An infected is in the way Attack', None, None, None, None, None,None, None, None, None, None)
+
 node = Office
 
 
